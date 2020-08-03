@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../views/Login'
 import Main from '../views/Main'
-
 // 用于嵌套的路由组件
 import UserProfile from '../views/user/Profile'
 import UserList from '../views/user/List'
@@ -25,10 +24,13 @@ export default new Router({
       component: Main,
       // 配置嵌套路由
       children: [
-        {path: '/user/profile/:id', name:'UserProfile', component: UserProfile},
+        {path: '/user/profile/:id', name: 'UserProfile', component: UserProfile},
         {path: '/user/list', component: UserList},
       ],
-    }
-
+    },
+    {
+      path: '/goHome',
+      redirect: '/main'
+    },
   ]
 });
